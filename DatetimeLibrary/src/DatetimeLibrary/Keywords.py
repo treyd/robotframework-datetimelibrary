@@ -17,6 +17,14 @@ class Keywords:
         return timestamp1, timestamp2
 
     def timestamps_should_be_equal(self, ts1, ts2, format1=None, format2=None):
+        """
+        Checks if timestamps ts1 and ts2 are equal.
+        
+        Timestamps can be given in any form which will be parsed by dateutil.parser
+        
+        You can optionally provide a format string for either timestamp.  Format strings
+        should follow _strftime_ format codes.
+        """
         timestamp1, timestamp2 = self._parse_timestamps(ts1, ts2, format1, format2)
         
         if timestamp1 != timestamp2:
@@ -26,6 +34,14 @@ class Keywords:
 
     
     def timestamps_should_be_close(self, ts1, ts2, limit, format1=None, format2=None):
+        """
+        Checks if timestamps ts1 and ts2 are within limit seconds of each other.
+        
+        Timestamps can be given in any form which will be parsed by dateutil.parser
+        
+        You can optionally provide a format string for either timestamp.  Format strings
+        should follow _strftime_ format codes.
+        """
         timestamp1, timestamp2 = self._parse_timestamps(ts1, ts2, format1, format2)
 
         
